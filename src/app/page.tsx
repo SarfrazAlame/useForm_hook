@@ -47,14 +47,19 @@ const page = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <input
-        {...register("email")}
+        {...register("email"),{
+          required:true
+        }
         type="text"
         placeholder="Email"
         className="border h-20"
       />
       {errors.email && <div>{errors.email.message}</div>}
       <input
-        {...register("password")}
+        {...register("password"),{
+          required:true,
+          minlength:6
+        }
         type="password"
         placeholder="Password"
         className="border h-20"
